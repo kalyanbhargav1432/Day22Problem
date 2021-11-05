@@ -65,6 +65,11 @@ public class ContactDetailsMain {
 		}
 		AddContact.search(hashTable);
 		System.out.println(" After Sorting :");
-		AddContact.sort(hashTable);
+		System.out.println("AddressBooks Sorted based on City :");
+		AddContact.sortByCity(hashTable);
+		System.out.println("AddressBooks Sorted based on State :");
+		AddContact.sortByState(hashTable);
+		System.out.println("AddressBooks Sorted based on Zip :");
+		AddContact.sortByZip(hashTable);
 	}
 }

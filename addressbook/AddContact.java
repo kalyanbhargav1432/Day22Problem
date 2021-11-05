@@ -132,10 +132,26 @@ public class AddContact extends PersonDetail {
 		return check;
 	}
 
-	public static void sort(Hashtable<Integer, ArrayList<AddContact>> hashTable) {
+	public static void sortByCity(Hashtable<Integer, ArrayList<AddContact>> hashTable) {
 		for (int i = 1; i <= hashTable.size(); i++) {
-			List<AddContact> sortedlist = hashTable.get(i).stream()
-					.sorted(Comparator.comparing(PersonDetail::getFirstName)).collect(Collectors.toList());
+			List<AddContact> sortedlist = hashTable.get(i).stream().sorted(Comparator.comparing(PersonDetail::getCity))
+					.collect(Collectors.toList());
+			System.out.println(sortedlist);
+		}
+	}
+
+	public static void sortByState(Hashtable<Integer, ArrayList<AddContact>> hashTable) {
+		for (int i = 1; i <= hashTable.size(); i++) {
+			List<AddContact> sortedlist = hashTable.get(i).stream().sorted(Comparator.comparing(PersonDetail::getState))
+					.collect(Collectors.toList());
+			System.out.println(sortedlist);
+		}
+	}
+
+	public static void sortByZip(Hashtable<Integer, ArrayList<AddContact>> hashTable) {
+		for (int i = 1; i <= hashTable.size(); i++) {
+			List<AddContact> sortedlist = hashTable.get(i).stream().sorted(Comparator.comparing(PersonDetail::getZip))
+					.collect(Collectors.toList());
 			System.out.println(sortedlist);
 		}
 	}
