@@ -145,14 +145,14 @@ public class AddContact extends PersonDetail {
 					.filter(c -> c.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
 			Predicate<AddContact> predicate = c -> c.getCity().contains(city);
 			count = cityList.stream().filter(predicate).count();
-			// System.out.println("Count for city: "+count);
+			System.out.println("Count for city: " + count);
 			System.out.println("List for city" + cityList);
 
 			List<AddContact> stateList = ContactDetailsMain.hashTable.get(i).stream()
 					.filter(s -> s.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
 			Predicate<AddContact> predicateForState = s -> s.getState().contains(state);
 			countForState = cityList.stream().filter(predicateForState).count();
-			// System.out.println("Count for state: "+countForState);
+			System.out.println("Count for state: " + countForState);
 			System.out.println("List for state" + stateList);
 
 		}
