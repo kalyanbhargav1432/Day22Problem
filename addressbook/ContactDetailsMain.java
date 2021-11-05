@@ -6,7 +6,8 @@ import java.util.Hashtable;
 
 public class ContactDetailsMain {
 
-	static Hashtable<Integer, ArrayList<AddContact>> hashTable = new Hashtable<Integer, ArrayList<AddContact>>();
+	public static Hashtable<Integer, ArrayList<AddContact>> hashTable = new Hashtable<Integer, ArrayList<AddContact>>();
+	static InputScanner inputScanner = new InputScanner();
 
 	private static char inputCharater() {
 		Scanner scanCharater = new Scanner(System.in);
@@ -14,16 +15,13 @@ public class ContactDetailsMain {
 		return charaterInput;
 	}
 
-	private static int inputInteger() {
-		Scanner scanCharater = new Scanner(System.in);
-		int integerInput = scanCharater.nextInt();
-		return integerInput;
-	}
-
 	public static void main(String[] args) {
-		System.out.println("enter the address book limit");
-		int addressBookLimit = inputInteger();
+		System.out.println("enter the address book limit:");
+		int addressBookLimit = inputScanner.inputInteger();
 		for (int i = 1; i <= addressBookLimit; i++) {
+			System.out.println("enter name of addressbook:");
+			String addressBookName = inputScanner.inputString();
+			System.out.println("Addres book name is :" + addressBookName);
 			ArrayList<AddContact> addDetails = new <AddContact>ArrayList();
 			while (true) {
 				AddContact addPersonDetails = new AddContact();
