@@ -1,6 +1,7 @@
 package addressbook;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.function.Predicate;
@@ -129,6 +130,14 @@ public class AddContact extends PersonDetail {
 				check = true;
 		}
 		return check;
+	}
+
+	public static void sort(Hashtable<Integer, ArrayList<AddContact>> hashTable) {
+		for (int i = 1; i <= hashTable.size(); i++) {
+			List<AddContact> sortedlist = hashTable.get(i).stream()
+					.sorted(Comparator.comparing(PersonDetail::getFirstName)).collect(Collectors.toList());
+			System.out.println(sortedlist);
+		}
 	}
 
 	public static void search(Hashtable<Integer, ArrayList<AddContact>> hashTable) {

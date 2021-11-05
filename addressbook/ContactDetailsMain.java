@@ -64,5 +64,7 @@ public class ContactDetailsMain {
 			System.out.println(hashTable.get(i));
 		}
 		AddContact.search(hashTable);
+		System.out.println(" After Sorting :");
+		AddContact.sort(hashTable);
 	}
 }
