@@ -3,6 +3,7 @@ package addressbook;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class AddContact extends PersonDetail {
@@ -132,20 +133,31 @@ public class AddContact extends PersonDetail {
 
 	public static void search(Hashtable<Integer, ArrayList<AddContact>> hashTable) {
 		InputScanner inputScanner = new InputScanner();
+		long count = 0;
+		long countForState = 0;
 		System.out.println("enter the city  name");
 		String city = inputScanner.inputString();
 		System.out.println("Enter state name");
 		String state = inputScanner.inputString();
 		for (int i = 1; i <= ContactDetailsMain.hashTable.size(); i++) {
+
 			List<AddContact> cityList = ContactDetailsMain.hashTable.get(i).stream()
 					.filter(c -> c.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
+			Predicate<AddContact> predicate = c -> c.getCity().contains(city);
+			count = cityList.stream().filter(predicate).count();
+			// System.out.println("Count for city: "+count);
 			System.out.println("List for city" + cityList);
+
 			List<AddContact> stateList = ContactDetailsMain.hashTable.get(i).stream()
 					.filter(s -> s.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
+			Predicate<AddContact> predicateForState = s -> s.getState().contains(state);
+			countForState = cityList.stream().filter(predicateForState).count();
+			// System.out.println("Count for state: "+countForState);
 			System.out.println("List for state" + stateList);
 
 		}
+		System.out.println("Count for city: " + count);
+		System.out.println("Count for state: " + countForState);
 
 	}
-
 }
