@@ -8,6 +8,7 @@ public class ContactDetailsMain {
 
 	public static Hashtable<Integer, ArrayList<AddContact>> hashTable = new Hashtable<Integer, ArrayList<AddContact>>();
 	static InputScanner inputScanner = new InputScanner();
+	static AddContact addContact = new AddContact();
 
 	private static char inputCharater() {
 		Scanner scanCharater = new Scanner(System.in);
@@ -62,5 +63,6 @@ public class ContactDetailsMain {
 			System.out.println("address book " + i);
 			System.out.println(hashTable.get(i));
 		}
+		AddContact.search(hashTable);
 	}
 }

@@ -1,6 +1,9 @@
 package addressbook;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class AddContact extends PersonDetail {
 	ArrayList<AddContact> addContactDetails;
@@ -125,6 +128,24 @@ public class AddContact extends PersonDetail {
 				check = true;
 		}
 		return check;
+	}
+
+	public static void search(Hashtable<Integer, ArrayList<AddContact>> hashTable) {
+		InputScanner inputScanner = new InputScanner();
+		System.out.println("enter the city  name");
+		String city = inputScanner.inputString();
+		System.out.println("Enter state name");
+		String state = inputScanner.inputString();
+		for (int i = 1; i <= ContactDetailsMain.hashTable.size(); i++) {
+			List<AddContact> cityList = ContactDetailsMain.hashTable.get(i).stream()
+					.filter(c -> c.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
+			System.out.println("List for city" + cityList);
+			List<AddContact> stateList = ContactDetailsMain.hashTable.get(i).stream()
+					.filter(s -> s.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
+			System.out.println("List for state" + stateList);
+
+		}
+
 	}
 
 }
