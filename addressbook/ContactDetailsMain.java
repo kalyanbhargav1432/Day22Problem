@@ -63,13 +63,11 @@ public class ContactDetailsMain {
 			System.out.println("address book " + i);
 			System.out.println(hashTable.get(i));
 		}
-		AddContact.search(hashTable);
-		System.out.println(" After Sorting :");
-		System.out.println("AddressBooks Sorted based on City :");
-		AddContact.sortByCity(hashTable);
-		System.out.println("AddressBooks Sorted based on State :");
-		AddContact.sortByState(hashTable);
+		System.out.println("AddressBooks Sorted based on city :");
+		AddContact.sort(hashTable, SortOption.CITY);
+		System.out.println("AddressBooks Sorted based on state :");
+		AddContact.sort(hashTable, SortOption.STATE);
 		System.out.println("AddressBooks Sorted based on Zip :");
-		AddContact.sortByZip(hashTable);
+		AddContact.sort(hashTable, SortOption.ZIP);
 	}
 }

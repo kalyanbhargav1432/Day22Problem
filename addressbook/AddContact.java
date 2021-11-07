@@ -156,6 +156,12 @@ public class AddContact extends PersonDetail {
 		}
 	}
 
+	public static void sort(Hashtable<Integer, ArrayList<AddContact>> hashTable, SortOption sortOptions) {
+		for (int i = 1; i <= hashTable.size(); i++) {
+			hashTable.get(i).stream().sorted(sortOptions.comparator).forEach(System.out::println);
+		}
+	}
+
 	public static void search(Hashtable<Integer, ArrayList<AddContact>> hashTable) {
 		InputScanner inputScanner = new InputScanner();
 		long count = 0;
